@@ -143,12 +143,17 @@ const terminal = document.getElementById("terminal");
 const terminalBody = document.getElementById("terminalBody");
 
 const terminalLines = [
-  { text: "$ claude code \"build a booking web app: auth, admin panel, Postgres schema\"", cls: "prompt" },
-  { text: "> Scaffolding project structure...", cls: "out" },
-  { text: "> Generated: routes, models, migrations, auth middleware", cls: "out" },
-  { text: "> Wired PostgreSQL schema (8 tables) + seed data", cls: "out" },
-  { text: "> Built admin dashboard UI (12 components)", cls: "out" },
-  { text: "> Tests passing -> app running on localhost:3000", cls: "ok" },
+  { text: "> Build a booking web app: auth, admin panel, Postgres schema", cls: "prompt" },
+  { text: "⏺ Scaffolding project structure", cls: "tool" },
+  { text: "⏺ Write(schema.sql)", cls: "tool" },
+  { text: "    8 tables, seed data generated", cls: "detail" },
+  { text: "⏺ Write(auth/middleware.ts)", cls: "tool" },
+  { text: "    JWT auth wired to admin routes", cls: "detail" },
+  { text: "⏺ Write(admin/dashboard.tsx)", cls: "tool" },
+  { text: "    12 components, wired to schema", cls: "detail" },
+  { text: "⏺ Bash(npm run build)", cls: "tool" },
+  { text: "    ✓ Build succeeded — 0 errors", cls: "detail-ok" },
+  { text: "⏺ Done — app running on localhost:3000", cls: "ok" },
 ];
 
 let terminalTyped = false;
