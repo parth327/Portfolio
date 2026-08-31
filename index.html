@@ -9,6 +9,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<noscript>
+  <style>
+    .reveal { opacity: 1 !important; transform: none !important; }
+  </style>
+</noscript>
 </head>
 <body>
 
@@ -53,11 +58,11 @@
 
       <div class="stat-row">
         <div class="stat">
-          <span class="stat-number" data-target="5" data-suffix="+">0</span>
+          <span class="stat-number" data-target="5" data-suffix="+">5+</span>
           <span class="stat-label">Years shipping software</span>
         </div>
         <div class="stat">
-          <span class="stat-number" data-target="2" data-suffix="">0</span>
+          <span class="stat-number" data-target="2" data-suffix="">2</span>
           <span class="stat-label">AI &amp; Claude certifications</span>
         </div>
       </div>
@@ -114,7 +119,7 @@
           <span class="terminal-title">Claude Code</span>
           <span class="terminal-badge">agentic session</span>
         </div>
-        <div class="terminal-body" id="terminalBody"></div>
+        <div class="terminal-body" id="terminalBody"><div class="prompt">&gt; Build a booking web app: auth, admin panel, Postgres schema</div><div class="tool">⏺ Scaffolding project structure</div><div class="tool">⏺ Write(schema.sql)</div><div class="detail">    8 tables, seed data generated</div><div class="tool">⏺ Write(auth/middleware.ts)</div><div class="detail">    JWT auth wired to admin routes</div><div class="tool">⏺ Write(admin/dashboard.tsx)</div><div class="detail">    12 components, wired to schema</div><div class="tool">⏺ Bash(npm run build)</div><div class="detail-ok">    ✓ Build succeeded — 0 errors</div><div class="ok">⏺ Done — app running on localhost:3000</div></div>
         <div class="terminal-input-bar">
           <span class="input-caret">›</span>
           <span class="input-placeholder">Try "add a payments page"…</span>
