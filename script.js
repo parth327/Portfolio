@@ -63,24 +63,31 @@ if (cursorGlow && window.matchMedia("(pointer: fine)").matches) {
 
 /* ---------- Reveal on scroll ---------- */
 const revealEls = document.querySelectorAll(".reveal");
-if (revealEls.length && "IntersectionObserver" in window) {
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          const el = entry.target;
-          const delay = Math.min(i % 4, 3) * 70;
-          setTimeout(() => el.classList.add("in-view"), delay);
-          revealObserver.unobserve(el);
-        }
-      });
-    },
-    { threshold: 0.12, rootMargin: "0px 0px -60px 0px" }
-  );
-  revealEls.forEach((el) => revealObserver.observe(el));
+if (revealEls.length) {
+  if ("IntersectionObserver" in window) {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const delay = Math.min(i % 4, 3) * 70;
+            setTimeout(() => el.classList.add("in-view"), delay);
+            revealObserver.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -60px 0px" }
+    );
+    revealEls.forEach((el) => revealObserver.observe(el));
+  } else {
+    // No IntersectionObserver support: show everything immediately rather than leaving it hidden.
+    revealEls.forEach((el) => el.classList.add("in-view"));
+  }
 }
 
 /* ---------- Count-up stats ---------- */
+// Markup already shows the final value (e.g. "5+") so it's correct with no JS.
+// When JS runs, reset to 0 first and animate up for the count-up effect.
 const statEls = document.querySelectorAll(".stat-number");
 if (statEls.length && "IntersectionObserver" in window) {
   const statObserver = new IntersectionObserver(
@@ -91,6 +98,7 @@ if (statEls.length && "IntersectionObserver" in window) {
         const target = parseInt(el.getAttribute("data-target"), 10) || 0;
         const suffix = el.getAttribute("data-suffix") || "";
         const duration = 900;
+        el.textContent = "0" + suffix;
         const start = performance.now();
         function tick(now) {
           const progress = Math.min((now - start) / duration, 1);
@@ -156,6 +164,10 @@ const terminalLines = [
   { text: "⏺ Done — app running on localhost:3000", cls: "ok" },
 ];
 
+// Static fallback content lives in the HTML for no-JS users. Clear it immediately
+// so JS users don't see a flash of full text before the typing animation runs.
+if (terminalBody) terminalBody.textContent = "";
+
 let terminalTyped = false;
 function typeTerminal() {
   if (terminalTyped || !terminalBody) return;
@@ -193,17 +205,21 @@ function typeTerminal() {
   typeChar();
 }
 
-if (terminal && "IntersectionObserver" in window) {
-  const termObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          typeTerminal();
-          termObserver.disconnect();
-        }
-      });
-    },
-    { threshold: 0.4 }
-  );
-  termObserver.observe(terminal);
+if (terminal) {
+  if ("IntersectionObserver" in window) {
+    const termObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            typeTerminal();
+            termObserver.disconnect();
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+    termObserver.observe(terminal);
+  } else {
+    typeTerminal();
+  }
 }
