@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parth Patel — AI-First Software Engineer</title>
+<meta name="description" content="Parth Patel — AI-First Software Engineer and Software Developer building enterprise workflow systems and full web applications with Claude Code.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="#top" class="nav-mark"><span>PP</span></a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="#ai">AI workflow</a>
+      <a href="#work">Work</a>
+      <a href="#stack">Stack</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-status">
+      <span class="status-dot" aria-hidden="true"></span>
+      Open to opportunities
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-orb hero-orb-amber" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb-violet" aria-hidden="true"></div>
+
+    <div class="hero-text">
+      <p class="hero-kicker">AI-First Software Engineer · Software Developer · Ahmedabad, India</p>
+      <h1 class="hero-title">I build the systems that keep operations moving.</h1>
+      <div class="hero-actions">
+        <a href="#work" class="btn btn-primary magnetic"><span>View the work</span></a>
+        <a href="assets/resume.pdf" class="btn btn-ghost magnetic" target="_blank" rel="noopener"><span>See My Resume</span></a>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat">
+          <span class="stat-number" data-target="5" data-suffix="+">0</span>
+          <span class="stat-label">Years shipping software</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number" data-target="2" data-suffix="">0</span>
+          <span class="stat-label">AI &amp; Claude certifications</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Claude Code</span><span>Claude</span><span>ASP .NET</span><span>VB .NET</span>
+      <span>SQL Server</span><span>Crystal Reports</span><span>ASP .Net Web API</span><span>Swagger</span>
+      <span>HTML</span><span>CSS</span><span>JavaScript</span><span>jQuery</span><span>Bootstrap</span>
+      <span>Claude Code</span><span>Claude</span><span>ASP .NET</span><span>VB .NET</span>
+      <span>SQL Server</span><span>Crystal Reports</span><span>ASP .Net Web API</span><span>Swagger</span>
+      <span>HTML</span><span>CSS</span><span>JavaScript</span><span>jQuery</span><span>Bootstrap</span>
+    </div>
+  </div>
+
+  <!-- ============ AI WORKFLOW ============ -->
+  <section id="ai" class="section ai-section">
+    <div class="hero-orb hero-orb-violet hero-orb-ai" aria-hidden="true"></div>
+    <div class="section-head reveal">
+      <h2>AI-augmented workflow</h2>
+      <p>
+        Claude Code is where most of my build time goes now — not for one-off
+        snippets, but for taking a spec to a running, tested web application
+        in a single sitting, without giving up the accuracy of a hand-written
+        system.
+      </p>
+    </div>
+
+    <div class="ai-layout">
+      <div class="ai-grid">
+        <div class="ai-item reveal">
+          <span class="ai-time">01 · SPEC</span>
+          <h3>Turn a spec into structure</h3>
+          <p>Feed Claude Code the requirements and it scaffolds routes, models, migrations, and auth together — not stitched from separate generations.</p>
+        </div>
+        <div class="ai-item reveal">
+          <span class="ai-time">02 · BUILD</span>
+          <h3>Full app, one sitting</h3>
+          <p>Front end, back end, and database wired to each other the same day — a working system, not a folder of disconnected files.</p>
+        </div>
+        <div class="ai-item reveal">
+          <span class="ai-time">03 · VERIFY</span>
+          <h3>Reviewed, not blind</h3>
+          <p>Every generated piece gets read, run, and corrected before it ships — Claude drafts the system, I'm still the one who signs off on it.</p>
+        </div>
+      </div>
+
+      <div class="terminal reveal" id="terminal">
+        <div class="terminal-bar">
+          <span class="terminal-dot dot-red"></span>
+          <span class="terminal-dot dot-yellow"></span>
+          <span class="terminal-dot dot-green"></span>
+          <span class="terminal-title">claude-code — parth@dev</span>
+        </div>
+        <div class="terminal-body" id="terminalBody"></div>
+        <p class="terminal-caption">Illustrative — a typical Claude Code build session, not a literal transcript.</p>
+      </div>
+    </div>
+
+    <div class="cert-row">
+      <a class="cert-card reveal" href="assets/certificate-be10x-ai-tools.pdf" download>
+        <span class="cert-icon">✓</span>
+        <div class="cert-info">
+          <h4>AI Tools &amp; Claude Workshop</h4>
+          <p>be10x · issued Aug 30, 2026</p>
+        </div>
+        <span class="cert-download">Download ↓</span>
+      </a>
+      <a class="cert-card reveal" href="assets/certificate-outskill-claude101.pdf" download>
+        <span class="cert-icon">✓</span>
+        <div class="cert-info">
+          <h4>Claude 101 Workshop</h4>
+          <p>Outskill</p>
+        </div>
+        <span class="cert-download">Download ↓</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ WORK ============ -->
+  <section id="work" class="section section-alt">
+    <div class="section-head reveal">
+      <h2>Systems I've shipped</h2>
+      <p>Production software, in the order I built it.</p>
+    </div>
+
+    <div class="project-list">
+
+      <article class="project-row reveal">
+        <div class="project-meta">
+          <span class="project-date">2025</span>
+          <span class="project-org">Chattary Ajwan Infotech</span>
+        </div>
+        <div class="project-body">
+          <h3>CLIMS — Contractor &amp; Labour Information Management</h3>
+          <p>
+            Digitised how a thermal power station allocates contractors and
+            labourers to work sites — replacing a manual, paper-driven
+            process with a tracked, reportable web workflow.
+          </p>
+          <div class="tag-row">
+            <code>.NET 4.5</code><code>VB.NET</code><code>Crystal Reports</code><code>MS SQL Server</code>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-row reveal">
+        <div class="project-meta">
+          <span class="project-date">2023–24</span>
+          <span class="project-org">Inflibnet Centre</span>
+        </div>
+        <div class="project-body">
+          <h3>SOUL Sales &amp; Support Platform</h3>
+          <p>
+            Built the sales-management application for SOUL 3.0, the
+            library-automation software used by university libraries,
+            to run the sales and support process end to end. Also
+            maintained SOUL Web OPAC, shipping new functionality and
+            fixing bugs reported by library staff.
+          </p>
+          <div class="tag-row">
+            <code>ASP.NET Core MVC</code><code>C#</code><code>Entity Framework</code><code>LINQ</code><code>MS SQL Server</code>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-row reveal">
+        <div class="project-meta">
+          <span class="project-date">2026</span>
+          <span class="project-org">Event Management System</span>
+        </div>
+        <div class="project-body">
+          <h3>Event Registration &amp; Check-in</h3>
+          <p>
+            A Node.js and PostgreSQL app for registering attendees,
+            generating per-attendee QR codes, and running check-in on the
+            day of the event, with an admin panel and one-click Excel
+            export of attendance data.
+          </p>
+          <div class="tag-row">
+            <code>Node.js</code><code>PostgreSQL</code><code>QR generation</code><code>Admin dashboard</code>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ STACK ============ -->
+  <section id="stack" class="section">
+    <div class="section-head reveal">
+      <h2>How it's built</h2>
+      <p>Grouped by the layer each tool sits at, not alphabetised.</p>
+    </div>
+
+    <div class="stack-grid">
+      <div class="stack-group reveal">
+        <h3>AI tools &amp; agentic workflow</h3>
+        <div class="tag-row tag-row-ai"><code>Claude Code</code><code>Claude</code></div>
+      </div>
+      <div class="stack-group reveal">
+        <h3>Backend &amp; frameworks</h3>
+        <div class="tag-row"><code>ASP .NET</code><code>VB .NET</code><code>ASP .Net Web API</code><code>Swagger</code></div>
+      </div>
+      <div class="stack-group reveal">
+        <h3>Frontend</h3>
+        <div class="tag-row"><code>HTML</code><code>CSS</code><code>JavaScript</code><code>jQuery</code><code>Bootstrap</code></div>
+      </div>
+      <div class="stack-group reveal">
+        <h3>Data</h3>
+        <div class="tag-row"><code>SQL Server</code></div>
+      </div>
+      <div class="stack-group reveal">
+        <h3>Reporting &amp; tooling</h3>
+        <div class="tag-row"><code>Crystal Reports</code><code>Github</code><code>Visual Source Safe</code><code>Visual Studio Code</code><code>Visual Studio</code></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section id="experience" class="section section-alt">
+    <div class="section-head reveal">
+      <h2>Experience</h2>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-rail" aria-hidden="true"><div class="timeline-rail-fill" id="railFill"></div></div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-date">
+          <span>2026 —<br>Present</span>
+        </div>
+        <div class="timeline-body">
+          <h3>AI-First Software Engineer</h3>
+          <p class="timeline-org">Personal</p>
+          <p>Building complete websites end-to-end with Claude — from spec to
+            shipped, in a fraction of the usual time, without cutting corners
+            on accuracy.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-date">
+          <span>2024 —<br>Present</span>
+        </div>
+        <div class="timeline-body">
+          <h3>Senior Software Developer</h3>
+          <p class="timeline-org">Chattary Ajwan Infotech Pvt. Ltd. · Ahmedabad</p>
+          <p>Building CLIMS and HumanVision — .NET web applications for contractor
+            allocation and workforce tracking at a thermal power station.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-date">
+          <span>2022 —<br>2024</span>
+        </div>
+        <div class="timeline-body">
+          <h3>Developer</h3>
+          <p class="timeline-org">Inflibnet Centre · Gandhinagar</p>
+          <p>Built the SOUL Sales &amp; Support application and maintained SOUL Web
+            OPAC — sales, support, and library-catalogue tooling for SOUL 3.0.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-date">
+          <span>2021 —<br>2022</span>
+        </div>
+        <div class="timeline-body">
+          <h3>Trainee</h3>
+          <p class="timeline-org">Radixweb · Ahmedabad</p>
+          <p>Structured training in .NET Core Web API, Swagger, Angular, C#,
+            Entity Framework, LINQ, and the front-end fundamentals: HTML, CSS,
+            jQuery, JavaScript, Bootstrap, Git.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="edu-grid">
+      <div class="edu-item reveal">
+        <h3>B.E., Computer Science</h3>
+        <p>GEC Modasa (GTU) · 2017–2021 · CGPA 7.68/10</p>
+      </div>
+      <div class="edu-item reveal">
+        <h3>H.S.C.</h3>
+        <p>Navyug Vidhyalay, Ahmedabad · 2015–2017 · 78.2%</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="section contact">
+    <div class="hero-orb hero-orb-amber hero-orb-contact" aria-hidden="true"></div>
+    <div class="contact-inner reveal">
+      <h2>Get in touch.</h2>
+      <div class="contact-links">
+        <a href="mailto:pp744336@gmail.com" class="magnetic"><span>pp744336@gmail.com</span></a>
+        <a href="tel:+919904511536" class="magnetic"><span>+91 99045 11536</span></a>
+        <span class="contact-location">Ahmedabad, Gujarat, IN</span>
+      </div>
+      <div class="contact-social">
+        <a href="https://github.com/parth327/" target="_blank" rel="noopener" class="social-link">GitHub</a>
+        <a href="https://www.linkedin.com/in/parth-patel-648102151" target="_blank" rel="noopener" class="social-link">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <span>Parth Patel — built &amp; deployed 2026 · <a href="https://github.com/parth327/" target="_blank" rel="noopener">GitHub</a></span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
