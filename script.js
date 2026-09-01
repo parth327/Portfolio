@@ -153,14 +153,18 @@ const terminalBody = document.getElementById("terminalBody");
 const terminalLines = [
   { text: "> Build a booking web app: auth, admin panel, Postgres schema", cls: "prompt" },
   { text: "⏺ Scaffolding project structure", cls: "tool" },
+  { text: "⏺ Bash(git init)", cls: "tool" },
+  { text: "    Initialized empty Git repository", cls: "detail" },
   { text: "⏺ Write(schema.sql)", cls: "tool" },
   { text: "    8 tables, seed data generated", cls: "detail" },
   { text: "⏺ Write(auth/middleware.ts)", cls: "tool" },
   { text: "    JWT auth wired to admin routes", cls: "detail" },
   { text: "⏺ Write(admin/dashboard.tsx)", cls: "tool" },
   { text: "    12 components, wired to schema", cls: "detail" },
-  { text: "⏺ Bash(npm run build)", cls: "tool" },
-  { text: "    ✓ Build succeeded — 0 errors", cls: "detail-ok" },
+  { text: "⏺ Bash(npm run build && npm test)", cls: "tool" },
+  { text: "    ✓ Build succeeded · 24 tests passed", cls: "detail-ok" },
+  { text: '⏺ Bash(git add -A && git commit -m "Booking app: auth, admin, schema")', cls: "tool" },
+  { text: "    [main a3f9c21] 22 files changed", cls: "detail" },
   { text: "⏺ Done — app running on localhost:3000", cls: "ok" },
 ];
 
@@ -222,4 +226,68 @@ if (terminal) {
   } else {
     typeTerminal();
   }
+}
+
+/* ---------- Theme toggle (light/dark, persisted) ---------- */
+const THEME_KEY = "pp-theme";
+const themeToggle = document.getElementById("themeToggle");
+function applyTheme(theme) {
+  if (theme === "light") {
+    document.documentElement.setAttribute("data-theme", "light");
+  } else {
+    document.documentElement.removeAttribute("data-theme");
+  }
+  if (themeToggle) {
+    themeToggle.setAttribute("aria-pressed", String(theme === "light"));
+    themeToggle.setAttribute("aria-label", theme === "light" ? "Switch to dark theme" : "Switch to light theme");
+  }
+}
+if (themeToggle) {
+  let current = "dark";
+  try {
+    current = localStorage.getItem(THEME_KEY) === "light" ? "light" : "dark";
+  } catch (e) {}
+  applyTheme(current);
+  themeToggle.addEventListener("click", () => {
+    const isLight = document.documentElement.getAttribute("data-theme") === "light";
+    const next = isLight ? "dark" : "light";
+    applyTheme(next);
+    try {
+      localStorage.setItem(THEME_KEY, next);
+    } catch (e) {}
+  });
+}
+
+/* ---------- Back to top ---------- */
+const backToTop = document.getElementById("backToTop");
+if (backToTop) {
+  function toggleBackToTop() {
+    if (window.scrollY > 600) backToTop.classList.add("visible");
+    else backToTop.classList.remove("visible");
+  }
+  document.addEventListener("scroll", toggleBackToTop, { passive: true });
+  toggleBackToTop();
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
+/* ---------- Copy email to clipboard ---------- */
+const copyEmailBtn = document.getElementById("copyEmailBtn");
+if (copyEmailBtn) {
+  const email = "pp744336@gmail.com";
+  copyEmailBtn.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+    } catch (e) {
+      return;
+    }
+    const original = copyEmailBtn.textContent;
+    copyEmailBtn.textContent = "Copied!";
+    copyEmailBtn.classList.add("copied");
+    setTimeout(() => {
+      copyEmailBtn.textContent = original;
+      copyEmailBtn.classList.remove("copied");
+    }, 1800);
+  });
 }
